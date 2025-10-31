@@ -1,0 +1,14 @@
+Starting job at Sun Oct 26 16:44:25 CET 2025
+Job ID: 158677
+Running on node: ailab-l4-02
+Active conda environment: llm
+Python path: /ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/bin/python
+Python version: Python 3.10.18
+[INFO] Loading tokenizer and model: meta-llama/Llama-2-13b-chat-hf
+[INFO] Loading tokenizer and model: meta-llama/Llama-2-13b-chat-hf
+[INFO] Model loaded successfully.
+[INFO] Accelerator initialized on device: cuda:0
+[INFO] Loading data from: model_outputs_Phi-3-mini-4k-instruct_20251025_100629.csv
+[INFO] Data loaded. Shape: (1560, 4)
+[DEBUG] Processing row 0/1560
+Job completed at Sun Oct 26 16:46:18 CET 2025

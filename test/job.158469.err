@@ -1,0 +1,2 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:32<00:32, 32.73s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:48<00:00, 22.66s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:48<00:00, 24.17s/it]

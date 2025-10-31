@@ -1,0 +1,229 @@
+Starting job at Fri Oct 31 08:25:27 CET 2025
+Job ID: 162701
+Running on node: ailab-l4-11
+Active conda environment: llm
+Python path: /ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/bin/python
+Python version: Python 3.10.18
+[INFO] Using device: cuda:1
+[INFO] Loading tokenizer and model: meta-llama/Meta-Llama-3.1-8B-Instruct
+[INFO] Using device: cuda:0
+[INFO] Loading tokenizer and model: meta-llama/Meta-Llama-3.1-8B-Instruct
+[INFO] Model loaded & prepared for multi-GPU inference.
+[INFO] Loaded 1560 rows
+[INFO] Model loaded & prepared for multi-GPU inference.
+[INFO] Loaded 1560 rows
+
+[DEBUG Row 0] Judge output raw: '<s>false</s>'
+
+[DEBUG Row 0] Judge output raw: '<s>false</s>'
+
+[DEBUG Row 1] Judge output raw: '<s>false</s>'
+
+[DEBUG Row 1] Judge output raw: '<s>false</s>'
+
+[DEBUG Row 2] Judge output raw: '<s>true</s>'
+
+[DEBUG Row 2] Judge output raw: '<s>true</s>'
+[WARN] No valid answer for row 15, default False
+[WARN] No valid answer for row 15, default False
+[WARN] No valid answer for row 27, default False
+[WARN] No valid answer for row 27, default False
+[WARN] No valid answer for row 42, default False
+[WARN] No valid answer for row 42, default False
+[WARN] No valid answer for row 57, default False
+[WARN] No valid answer for row 57, default False
+[WARN] No valid answer for row 60, default False
+[WARN] No valid answer for row 60, default False
+[WARN] No valid answer for row 75, default False
+[WARN] No valid answer for row 75, default False
+[WARN] No valid answer for row 91, default False
+[WARN] No valid answer for row 91, default False
+[WARN] No valid answer for row 95, default False
+[WARN] No valid answer for row 95, default False
+[WARN] No valid answer for row 123, default False
+[WARN] No valid answer for row 123, default False
+[WARN] No valid answer for row 134, default False
+[WARN] No valid answer for row 134, default False
+[WARN] No valid answer for row 135, default False
+[WARN] No valid answer for row 135, default False
+[WARN] No valid answer for row 150, default False
+[WARN] No valid answer for row 150, default False
+[WARN] No valid answer for row 160, default False
+[WARN] No valid answer for row 160, default False
+[WARN] No valid answer for row 182, default False
+[WARN] No valid answer for row 182, default False
+[WARN] No valid answer for row 184, default False
+[WARN] No valid answer for row 184, default False
+[WARN] No valid answer for row 191, default False
+[WARN] No valid answer for row 191, default False
+
+[DEBUG Row 200] Judge output raw: '<s>false</s>'
+
+[DEBUG Row 200] Judge output raw: '<s>false</s>'
+[WARN] No valid answer for row 210, default False
+[WARN] No valid answer for row 210, default False
+[WARN] No valid answer for row 212, default False
+[WARN] No valid answer for row 212, default False
+[WARN] No valid answer for row 234, default False
+[WARN] No valid answer for row 234, default False
+[WARN] No valid answer for row 237, default False
+[WARN] No valid answer for row 237, default False
+[WARN] No valid answer for row 248, default False
+[WARN] No valid answer for row 248, default False
+[WARN] No valid answer for row 289, default False
+[WARN] No valid answer for row 289, default False
+[WARN] No valid answer for row 307, default False
+[WARN] No valid answer for row 307, default False
+[WARN] No valid answer for row 320, default False
+[WARN] No valid answer for row 320, default False
+[WARN] No valid answer for row 332, default False
+[WARN] No valid answer for row 332, default False
+[WARN] No valid answer for row 360, default False
+[WARN] No valid answer for row 360, default False
+
+[DEBUG Row 400] Judge output raw: '<s>false</s>'
+
+[DEBUG Row 400] Judge output raw: '<s>false</s>'
+[WARN] No valid answer for row 417, default False
+[WARN] No valid answer for row 417, default False
+[WARN] No valid answer for row 459, default False
+[WARN] No valid answer for row 459, default False
+[WARN] No valid answer for row 519, default False
+[WARN] No valid answer for row 519, default False
+[WARN] No valid answer for row 532, default False
+[WARN] No valid answer for row 532, default False
+[WARN] No valid answer for row 543, default False
+[WARN] No valid answer for row 543, default False
+[WARN] No valid answer for row 555, default False
+[WARN] No valid answer for row 557, default False
+[WARN] No valid answer for row 555, default False
+[WARN] No valid answer for row 557, default False
+
+[DEBUG Row 600] Judge output raw: '<s>false</s>'
+
+[DEBUG Row 600] Judge output raw: '<s>false</s>'
+[WARN] No valid answer for row 603, default False
+[WARN] No valid answer for row 603, default False
+[WARN] No valid answer for row 619, default False
+[WARN] No valid answer for row 619, default False
+[WARN] No valid answer for row 622, default False
+[WARN] No valid answer for row 624, default False
+[WARN] No valid answer for row 622, default False
+[WARN] No valid answer for row 624, default False
+[WARN] No valid answer for row 636, default False
+[WARN] No valid answer for row 637, default False
+[WARN] No valid answer for row 639, default False
+[WARN] No valid answer for row 636, default False
+[WARN] No valid answer for row 637, default False
+[WARN] No valid answer for row 639, default False
+[WARN] No valid answer for row 716, default False
+[WARN] No valid answer for row 720, default False
+[WARN] No valid answer for row 716, default False
+[WARN] No valid answer for row 720, default False
+[WARN] No valid answer for row 728, default False
+[WARN] No valid answer for row 729, default False
+[WARN] No valid answer for row 728, default False
+[WARN] No valid answer for row 729, default False
+[WARN] No valid answer for row 738, default False
+[WARN] No valid answer for row 738, default False
+[WARN] No valid answer for row 749, default False
+[WARN] No valid answer for row 749, default False
+[WARN] No valid answer for row 763, default False
+[WARN] No valid answer for row 763, default False
+[WARN] No valid answer for row 777, default False
+[WARN] No valid answer for row 777, default False
+[WARN] No valid answer for row 788, default False
+[WARN] No valid answer for row 788, default False
+
+[DEBUG Row 800] Judge output raw: '<s>true</s>'
+[WARN] No valid answer for row 804, default False
+
+[DEBUG Row 800] Judge output raw: '<s>true</s>'
+[WARN] No valid answer for row 804, default False
+[WARN] No valid answer for row 825, default False
+[WARN] No valid answer for row 825, default False
+[WARN] No valid answer for row 888, default False
+[WARN] No valid answer for row 888, default False
+[WARN] No valid answer for row 953, default False
+[WARN] No valid answer for row 953, default False
+[WARN] No valid answer for row 964, default False
+[WARN] No valid answer for row 964, default False
+[WARN] No valid answer for row 981, default False
+[WARN] No valid answer for row 981, default False
+[WARN] No valid answer for row 993, default False
+
+[DEBUG Row 1000] Judge output raw: '<s>true</s>'
+[WARN] No valid answer for row 993, default False
+
+[DEBUG Row 1000] Judge output raw: '<s>true</s>'
+[WARN] No valid answer for row 1010, default False
+[WARN] No valid answer for row 1011, default False
+[WARN] No valid answer for row 1010, default False
+[WARN] No valid answer for row 1011, default False
+[WARN] No valid answer for row 1032, default False
+[WARN] No valid answer for row 1032, default False
+[WARN] No valid answer for row 1050, default False
+[WARN] No valid answer for row 1052, default False
+[WARN] No valid answer for row 1050, default False
+[WARN] No valid answer for row 1052, default False
+[WARN] No valid answer for row 1061, default False
+[WARN] No valid answer for row 1061, default False
+[WARN] No valid answer for row 1080, default False
+[WARN] No valid answer for row 1083, default False
+[WARN] No valid answer for row 1080, default False
+[WARN] No valid answer for row 1083, default False
+[WARN] No valid answer for row 1105, default False
+[WARN] No valid answer for row 1105, default False
+[WARN] No valid answer for row 1133, default False
+[WARN] No valid answer for row 1133, default False
+[WARN] No valid answer for row 1152, default False
+[WARN] No valid answer for row 1158, default False
+[WARN] No valid answer for row 1152, default False
+[WARN] No valid answer for row 1158, default False
+[WARN] No valid answer for row 1173, default False
+[WARN] No valid answer for row 1176, default False
+[WARN] No valid answer for row 1173, default False
+[WARN] No valid answer for row 1176, default False
+[WARN] No valid answer for row 1192, default False
+[WARN] No valid answer for row 1192, default False
+
+[DEBUG Row 1200] Judge output raw: '<s>false</s>'
+
+[DEBUG Row 1200] Judge output raw: '<s>false</s>'
+[WARN] No valid answer for row 1221, default False
+[WARN] No valid answer for row 1221, default False
+[WARN] No valid answer for row 1236, default False
+[WARN] No valid answer for row 1239, default False
+[WARN] No valid answer for row 1236, default False
+[WARN] No valid answer for row 1239, default False
+[WARN] No valid answer for row 1266, default False
+[WARN] No valid answer for row 1266, default False
+[WARN] No valid answer for row 1343, default False
+[WARN] No valid answer for row 1343, default False
+[WARN] No valid answer for row 1368, default False
+[WARN] No valid answer for row 1368, default False
+
+[DEBUG Row 1400] Judge output raw: '<s>false</s>'
+
+[DEBUG Row 1400] Judge output raw: '<s>false</s>'
+[WARN] No valid answer for row 1415, default False
+[WARN] No valid answer for row 1415, default False
+[WARN] No valid answer for row 1429, default False
+[WARN] No valid answer for row 1430, default False
+[WARN] No valid answer for row 1431, default False
+[WARN] No valid answer for row 1429, default False
+[WARN] No valid answer for row 1430, default False
+[WARN] No valid answer for row 1431, default False
+[WARN] No valid answer for row 1479, default False
+[WARN] No valid answer for row 1479, default False
+[WARN] No valid answer for row 1514, default False
+[WARN] No valid answer for row 1514, default False
+[WARN] No valid answer for row 1521, default False
+[WARN] No valid answer for row 1521, default False
+[WARN] No valid answer for row 1541, default False
+[WARN] No valid answer for row 1541, default False
+[WARN] No valid answer for row 1553, default False
+[INFO] Saved results to llm_judge_results_falcon7b.csv
+[WARN] No valid answer for row 1553, default False
+[INFO] Saved results to llm_judge_results_falcon7b.csv
+Job completed at Fri Oct 31 08:49:02 CET 2025
