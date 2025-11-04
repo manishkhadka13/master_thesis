@@ -1,14 +1,12 @@
 import pandas as pd
 from tqdm import tqdm
 import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, BitsAndBytesConfig
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from accelerate import Accelerator
 
-
-csv_path = "eval_dataset_falcon7b.csv"   
-input_column = "llamaguard3_input"
+csv_path = "model_outputs_Llama-2-7b-chat-hf_20251025_102855.csv"
 output_column = "llamaguard3_label"
-model_name = "meta-llama/Llama-Guard-3-8B"       
+model_name = "meta-llama/Llama-Guard-3-8B"
 
 accelerator = Accelerator()
 local_idx = accelerator.local_process_index
@@ -18,8 +16,8 @@ bnb_config = BitsAndBytesConfig(load_in_4bit=True)
 if accelerator.is_main_process:
     print(f"[INFO] Loading {model_name} on {num_proc} GPUs.")
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSequenceClassification.from_pretrained(
-    model_name, device_map="auto", quantization_config=bnb_config
+model = AutoModelForCausalLM.from_pretrained(
+    model_name, device_map="auto", torch_dtype=torch.bfloat16, quantization_config=bnb_config
 )
 model.eval()
 
@@ -30,23 +28,30 @@ end_idx = start_idx + chunk_size if local_idx < num_proc - 1 else len(df)
 df_chunk = df.iloc[start_idx:end_idx]
 
 labels = []
-for idx, input_text in tqdm(enumerate(df_chunk[input_column]), total=len(df_chunk)):
-    inputs = tokenizer(
-        input_text, return_tensors="pt", truncation=True, max_length=1024
-    ).to(accelerator.device)
+outputs = []
+for idx, row in tqdm(df_chunk.iterrows(), total=len(df_chunk)):
+    chat = [
+        {"role": "user", "content": str(row['variants'])},
+        {"role": "assistant", "content": str(row['model_response'])}
+    ]
+    input_ids = tokenizer.apply_chat_template(chat, return_tensors="pt").to(accelerator.device)
     with torch.no_grad():
-        logits = model(**inputs).logits
-        label = logits.argmax().item()
+        output = model.generate(input_ids=input_ids, max_new_tokens=100, pad_token_id=tokenizer.pad_token_id)
+        prompt_len = input_ids.shape[-1]
+        moderation_result = tokenizer.decode(output[0][prompt_len:], skip_special_tokens=True).strip()
+    outputs.append(moderation_result)
+    label = 1 if "unsafe" in moderation_result.lower() else 0
     labels.append(label)
     if idx < 5 or idx % 200 == 0:
-        print(f"[DEBUG] Proc {local_idx} Row {start_idx+idx}: {input_text[:60]}... → Label: {label}")
+        print(f"[DEBUG] Row {start_idx+idx}: {moderation_result[:60]} → Label: {label}")
 
+df_chunk["llamaguard3_moderation"] = outputs
 df_chunk[output_column] = labels
 
 all_results = accelerator.gather_for_metrics(df_chunk.to_dict(orient='records'))
 
 if accelerator.is_main_process:
     out_df = pd.DataFrame(all_results)
-    out_path = "llamaguard3_results_falcon7b.csv"
+    out_path = "llamaguard3_results_llama2-7b.csv"
     out_df.to_csv(out_path, index=False)
-    print(f"[INFO] Results written to: {out_path}")
+    print(f"[INFO] Moderation results saved to: {out_path}")
