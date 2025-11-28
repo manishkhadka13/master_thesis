@@ -1,11 +1,0 @@
-The following values were not passed to `accelerate launch` and had defaults used instead:
-		More than one GPU was found, enabling multi-GPU training.
-		If this was unintended please pass in `--num_processes=1`.
-	`--num_machines` was set to a value of `1`
-	`--dynamo_backend` was set to a value of `'no'`
-To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
-/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/utils/launch.py:238: UserWarning: Port `29500` is already in use. Accelerate will attempt to launch in a standalone-like mode by finding an open port automatically for this session. If this current attempt fails, or for more control in future runs, please specify a different port (e.g., `--main_process_port <your_chosen_port>`) or use `--main_process_port 0` for automatic selection in your launch command or Accelerate config file.
-  warnings.warn(
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.99s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.26s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  4.69s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  5.19s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  4.79s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  5.31s/it]
-[rank0]:[W1025 10:28:55.790764546 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
