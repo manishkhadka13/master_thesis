@@ -1,76 +1,0 @@
-The following values were not passed to `accelerate launch` and had defaults used instead:
-		More than one GPU was found, enabling multi-GPU training.
-		If this was unintended please pass in `--num_processes=1`.
-	`--num_machines` was set to a value of `1`
-	`--dynamo_backend` was set to a value of `'no'`
-To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
-`torch_dtype` is deprecated! Use `dtype` instead!
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:10<00:30, 10.26s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:10<00:32, 10.85s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:19<00:19,  9.62s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:20<00:19,  9.94s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:28<00:09,  9.33s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:29<00:09,  9.50s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:30<00:00,  6.57s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:30<00:00,  7.69s/it]
-Loading checkpoint shards: 100%|██████████| 4/4 [00:31<00:00,  6.61s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:31<00:00,  7.82s/it]
-[rank0]: Traceback (most recent call last):
-[rank0]:   File "/ceph/home/student.aau.dk/jx88vo/src/llm_judge.py", line 23, in <module>
-[rank0]:     model = accelerator.prepare(model)
-[rank0]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/accelerator.py", line 1559, in prepare
-[rank0]:     result = tuple(
-[rank0]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/accelerator.py", line 1560, in <genexpr>
-[rank0]:     self._prepare_one(obj, first_pass=True, device_placement=d) for obj, d in zip(args, device_placement)
-[rank0]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/accelerator.py", line 1402, in _prepare_one
-[rank0]:     return self.prepare_model(obj, device_placement=device_placement)
-[rank0]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/accelerator.py", line 1823, in prepare_model
-[rank0]:     model = torch.nn.parallel.DistributedDataParallel(
-[rank0]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 873, in __init__
-[rank0]:     self._ddp_init_helper(
-[rank0]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1222, in _ddp_init_helper
-[rank0]:     self.reducer = dist.Reducer(
-[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.96 GiB. GPU 0 has a total capacity of 22.03 GiB of which 6.60 GiB is free. Including non-PyTorch memory, this process has 15.42 GiB memory in use. Of the allocated memory 14.96 GiB is allocated by PyTorch, and 129.49 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-[rank1]: Traceback (most recent call last):
-[rank1]:   File "/ceph/home/student.aau.dk/jx88vo/src/llm_judge.py", line 23, in <module>
-[rank1]:     model = accelerator.prepare(model)
-[rank1]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/accelerator.py", line 1559, in prepare
-[rank1]:     result = tuple(
-[rank1]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/accelerator.py", line 1560, in <genexpr>
-[rank1]:     self._prepare_one(obj, first_pass=True, device_placement=d) for obj, d in zip(args, device_placement)
-[rank1]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/accelerator.py", line 1402, in _prepare_one
-[rank1]:     return self.prepare_model(obj, device_placement=device_placement)
-[rank1]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/accelerator.py", line 1823, in prepare_model
-[rank1]:     model = torch.nn.parallel.DistributedDataParallel(
-[rank1]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 873, in __init__
-[rank1]:     self._ddp_init_helper(
-[rank1]:   File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1222, in _ddp_init_helper
-[rank1]:     self.reducer = dist.Reducer(
-[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.96 GiB. GPU 1 has a total capacity of 22.03 GiB of which 6.60 GiB is free. Including non-PyTorch memory, this process has 15.42 GiB memory in use. Of the allocated memory 14.96 GiB is allocated by PyTorch, and 129.49 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-[rank0]:[W1031 07:44:45.812294809 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
-W1031 07:44:46.359000 859095 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 860912 closing signal SIGTERM
-E1031 07:44:46.474000 859095 site-packages/torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 1 (pid: 860913) of binary: /ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/bin/python3.10
-Traceback (most recent call last):
-  File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/bin/accelerate", line 7, in <module>
-    sys.exit(main())
-  File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
-    args.func(args)
-  File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/commands/launch.py", line 1226, in launch_command
-    multi_gpu_launcher(args)
-  File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/accelerate/commands/launch.py", line 853, in multi_gpu_launcher
-    distrib_run.run(args)
-  File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/torch/distributed/run.py", line 927, in run
-    elastic_launch(
-  File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 156, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-  File "/ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
-    raise ChildFailedError(
-torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-============================================================
-llm_judge.py FAILED
-------------------------------------------------------------
-Failures:
-  <NO_OTHER_FAILURES>
-------------------------------------------------------------
-Root Cause (first observed failure):
-[0]:
-  time      : 2025-10-31_07:44:46
-  host      : ailab-l4-11.srv.aau.dk
-  rank      : 1 (local_rank: 1)
-  exitcode  : 1 (pid: 860913)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-============================================================
