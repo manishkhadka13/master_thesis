@@ -1,8 +1,0 @@
-Starting job at Fri Oct 31 09:08:57 CET 2025
-Job ID: 162710
-Running on node: ailab-l4-11
-Active conda environment: llm
-Python path: /ceph/home/student.aau.dk/jx88vo/miniconda3/envs/llm/bin/python
-Python version: Python 3.10.18
-[INFO] Loading Llama Guard-3 quantized (4bit) on multi-GPU...
-Job completed at Fri Oct 31 09:09:11 CET 2025
