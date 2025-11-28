@@ -4,7 +4,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from datetime import datetime
 from accelerate import Accelerator
 
-model_name = "meta-llama/Llama-2-13b-chat-hf"
+model_name = "tiiuae/falcon-11b"
 bnb_config = BitsAndBytesConfig(load_in_4bit=True)
 source_csv = "custom_dataset.csv"
 prompt_column = "variants"
@@ -14,7 +14,8 @@ output_csv_prefix = "model_outputs"
 accelerator = Accelerator()
 
 try:
-    df = pd.read_csv(source_csv)
+    main_df = pd.read_csv(source_csv)
+    df=main_df.iloc[780:1560]
     if accelerator.is_main_process:
         print(f"Loaded {len(df)} rows from {source_csv}")
 except Exception as e:
@@ -54,7 +55,7 @@ end_idx = start_idx + chunk_size if accelerator.process_index < accelerator.num_
 df_chunk = df.iloc[start_idx:end_idx]
 
 output_rows = []
-batch_size = 4  
+batch_size = 4
 
 for i in range(0, len(df_chunk), batch_size):
     batch = df_chunk.iloc[i:i + batch_size]
@@ -106,6 +107,6 @@ all_results = accelerator.gather_for_metrics(output_rows)
 if accelerator.is_main_process:
     out_df = pd.DataFrame(all_results)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    out_file = f"{output_csv_prefix}_{model_name.split('/')[-1]}_{timestamp}.csv"
+    out_file = f"{output_csv_prefix}_{model_name.split('/')[-1]}_{timestamp}_2nd.csv"
     out_df.to_csv(out_file, index=False)
     print(f"\nAll {len(all_results)} responses saved in {out_file}")
