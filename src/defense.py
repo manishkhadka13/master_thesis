@@ -8,7 +8,7 @@ GUARD_MODEL_NAME = "Qwen/Qwen3Guard-Gen-8B"
 INPUT_CSV = "llamaguard3_results_llama2-7b.csv"
 OUTPUT_CSV = "llama2-7b_qwen3guard_results_binary.csv"
 
-PROMPT_COL = "prompt"
+PROMPT_COL = "variants"
 RESP_COL = "model_response"
 LLG_COL = "llamaguard3_label"  # 0 = benign, 1 = jailbreak
 
