@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name=Judge_job
+#SBATCH --job-name=Defense_Job
 #SBATCH --partition=l4
 #SBATCH --cpus-per-task=15
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:1
 #SBATCH --mem=24G
 #SBATCH --time=12:00:00
 #SBATCH --output=job.%j.out
@@ -21,7 +21,7 @@ echo "Python path: $(which python)"
 echo "Python version: $(python --version)"
 
 
-accelerate launch --num_processes=2 --mixed_precision=fp16  --main_process_port 0  llm_judge.py
+python defense.py
 
 
 echo "Job completed at $(date)"
