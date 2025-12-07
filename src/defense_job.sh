@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=Qwen3Gaurd_job
+#SBATCH --job-name=Defense_Job
 #SBATCH --partition=l4
 #SBATCH --cpus-per-task=15
 #SBATCH --gres=gpu:1

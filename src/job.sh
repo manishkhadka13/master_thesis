@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=Eval_job
+#SBATCH --job-name=Judge_job
 #SBATCH --partition=l4
 #SBATCH --cpus-per-task=15
 #SBATCH --gres=gpu:2
