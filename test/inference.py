@@ -6,16 +6,15 @@ from accelerate import Accelerator
 
 model_name = "tiiuae/falcon-11b"
 bnb_config = BitsAndBytesConfig(load_in_4bit=True)
-source_csv = "custom_dataset.csv"
-prompt_column = "variants"
-output_csv_prefix = "model_outputs"
+source_csv = "dataset.csv"
+prompt_column = "prompt"
+output_csv_prefix = "model_outputs(base_prompt)"
 
 # Initialize accelerator
 accelerator = Accelerator()
 
 try:
-    main_df = pd.read_csv(source_csv)
-    df=main_df.iloc[780:1560]
+    df = pd.read_csv(source_csv)
     if accelerator.is_main_process:
         print(f"Loaded {len(df)} rows from {source_csv}")
 except Exception as e:
